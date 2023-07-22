@@ -1,0 +1,31 @@
+# permissions for end users to edit tenants.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: tenant-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: sample-tenant-operator
+    app.kubernetes.io/part-of: sample-tenant-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: tenant-editor-role
+rules:
+- apiGroups:
+  - multitenancy.codereliant.io
+  resources:
+  - tenants
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - multitenancy.codereliant.io
+  resources:
+  - tenants/status
+  verbs:
+  - get

@@ -1,0 +1,13 @@
+apiVersion: multitenancy.codereliant.io/v1
+kind: Tenant
+metadata:
+  name: tenant-sample2
+spec:
+  adminEmail: admin@yourdomain.com
+  adminGroups:
+    - tenant-sample-admins
+  userGroups:
+    - tenant-sample-users
+    - another-group-users
+  namespaces:
+    - tenant-sample-ns1
